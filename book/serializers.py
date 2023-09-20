@@ -31,3 +31,4 @@ class BookImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookImage
         fields = '__all__'
+        
