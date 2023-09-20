@@ -25,5 +25,4 @@ urlpatterns = [
     path('authors/', Author.as_view()),
     path('languages/', Language.as_view()),
     path('books/', Book.as_view()),
-    
 ]
