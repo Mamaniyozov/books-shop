@@ -72,3 +72,33 @@ class Createbook(APIView):
             )
             user.save()
             return Response({ "message": "User created successfully." },status=status.HTTP_201_CREATED)
+        
+
+class Updatebook(APIView):
+    def put(self,request,id:int):
+        data=request.data
+        try:
+            user=Book.objects.get(id=id)
+            user.title = data.get('title')
+            user.authors = data.get('authors')
+            user.publisher = data.get('publisher')
+            user.publication_date = data.get('publication_date')
+            user.genres = data.get('genres')
+            user.description = data.get('description')
+            user.cover = data.get('cover')
+            user.price = data.get('price')
+            user.save()
+            return Response({ "message": "User updated successfully." },status=status.HTTP_200_OK)
+        except:
+            return Response({'result':'User not found'})
+        
+
+class Deletebook(APIView):
+    def delete(self,request,id:int):
+        try:
+            user=Book.objects.get(id=id)
+            user.delete()
+            return Response({ "message": "User deleted successfully." },status=status.HTTP_200_OK)
+        except:
+            return Response({'result':'User not found'})
+        
