@@ -20,9 +20,9 @@ from book.models import Genre, Publisher, Author, Language, Book
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('genres/', Genre.as_view()),
-    path('publishers/', Publisher.as_view()),
-    path('authors/', Author.as_view()),
-    path('languages/', Language.as_view()),
-    path('books/', Book.as_view()),
+    path('genres/', Genre),
+    path('publishers/', Publisher),
+    path('authors/', Author),
+    path('languages/', Language),
+    path('books/', Book),
 ]
