@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.request import Request
@@ -28,15 +27,7 @@ class Users(APIView):
                 data.append({ "username": user.username, "first_name": user.first_name, "last_name": user.first_name})
             return Response(data)
         except:
-            return Response({'result':'Users not found'})
-        
-
-class PostsView(APIView):
-    def get(self, request: Request) -> Response:
-        posts = Book.objects.all()
-        serializer = PostSerializer(posts, many=True)
-
-        return Response({"posts": serializer.data})
+            return Response({'result':'Users not found'}
     
 
 class PostView(APIView):
