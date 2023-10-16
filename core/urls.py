@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from book.models import Genre, Publisher, Author, Language, Book
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
+    path('genres/', Genre),
+    path('publishers/', Publisher),
+    path('authors/', Author),
+    path('languages/', Language),
+    path('books/', Book),
 ]
